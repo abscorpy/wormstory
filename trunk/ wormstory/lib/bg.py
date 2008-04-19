@@ -1,1 +1,0 @@
-# I am the background for worm walking.
