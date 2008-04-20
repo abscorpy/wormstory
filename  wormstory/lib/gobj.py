@@ -26,7 +26,7 @@ class gobj(object):
 
 	def set_display(self):
 		display.set_caption(self.main_title)
-		display.toggle_fullscreen()
+#		display.toggle_fullscreen()
 
 if __name__ == "__main__":
 	

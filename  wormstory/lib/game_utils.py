@@ -35,18 +35,3 @@ class game_utils(object):
 				colorkey = image.get_at((0,0))
 			image.set_colorkey(colorkey, RLEACCEL)
 		return image
-
-	def base_event(self):
-		for e in pygame.event.get():
-			if e.type == KEYDOWN:
-				if e.key == K_ESCAPE:
-					sys.exit()
-#				elif e.key == K_h:
-#					self._show_help()
-#				elif e.key == K_SPACE:
-#					return 1
-#				elif e.key == K_k:
-#					self.si.keyboard_h = 1;
-#					return 1
-				elif e.key == K_s:
-					self._screen_save()
