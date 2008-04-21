@@ -12,13 +12,18 @@ if __name__ == "__main__":
 	s.draw()
 	display.flip()
 	spider = spider(g, (100,300))
-	g.spider_group.add(spider)
+#	g.spider_group.add(spider)
 
 	while not g.j.quit and not (9 in g.j.down) and not (21 in g.j.down):
 		g.event_update()
+		spider.update()
+#		g.spider_group.update()
 		s.draw()
-		g.spider_group.draw(g.screen)
-		gdebug.debug_jioe()
+		g.screen.blit(spider.image.convert_alpha(), (spider.rect.top, spider.rect.left))
+#		print 'top: %s' %spider.rect.top
+#		print 'left: %s' %spider.rect.left
+#		g.spider_group.draw(g.screen)
+#		gdebug.debug_jioe()
 		display.flip()
 
 
