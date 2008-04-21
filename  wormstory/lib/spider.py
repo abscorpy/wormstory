@@ -9,6 +9,8 @@ class spider(sprite.Sprite):
 		sprite.Sprite.__init__(self) #call Sprite initializer
 		self.image = self.g.u.load_image('spider_s.png', -1)
 		self.rect = self.image.get_rect(center=center)
+		self.speed = 5
 
 	def update(self):
-		pass
+		self.rect = self.rect.move(
+			self.g.j.all_axis[7] * self.speed, self.g.j.all_axis[4] * self.speed)
