@@ -18,7 +18,7 @@ if __name__ == "__main__":
 		g.event_update()
 		s.draw()
 		g.spider_group.draw(g.screen)
-#		gdebug.debug_jioe()
+		gdebug.debug_jioe()
 		display.flip()
 
 

@@ -18,14 +18,8 @@ class game_debug(object):
 					(255,100,100)),(40, y))
 			y = y + 20
 		
-		for j in self.g.j.axis:
+		for j in self.g.j.all_axis.keys():
 			self.g.screen.blit(
-				self.g.sys_font.render('AXIS: %s, VALUE: %s' %(str(j[0]), str(j[1])), 1,
-					(255,100,100)),(40, y))
-			y = y + 20
-
-		for j in self.g.j.still:
-			self.g.screen.blit(
-				self.g.sys_font.render('AXIS: %s, VALUE: %s' %(str(j[0]), str(j[1])), 1,
+				self.g.sys_font.render('AXIS: %s, VALUE: %s' %(str(j), str(self.g.j.all_axis[j])), 1,
 					(255,100,100)),(40, y))
 			y = y + 20

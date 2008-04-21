@@ -29,12 +29,13 @@ class jioe(object):
         self.user=[e for e in events if e.type==USEREVENT]
 
         # handle the joystick's axis.
-        self.axis=[(j.axis, j.value) for j in events if j.type==JOYAXISMOTION]
- 
-        for i in self.axis:
-            self.still=[x for x in self.still if x[0] != i[0]]
         
-        self.still+=self.axis
+        # Just has a TWIN USB JOYSTICK.
+        # If system have two joystick, it will has bug.
+        for j in events:
+            if j.type == JOYAXISMOTION:
+                self.all_axis[j.axis] = j.value
+        
         
     def reset(self):
         """Empties all the lists. Use this when going back to a menu otherwise keys could be stuck in the pressed list.""" 
@@ -44,5 +45,4 @@ class jioe(object):
         self.pressed=[]
         self.quit=[]
         self.user=[]
-        self.axis=[]
-        self.still=[] 
+        self.all_axis={}
