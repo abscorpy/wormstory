@@ -29,6 +29,7 @@ class gobj(object):
 		self.joystick.init()
 		self.j = jioe()
 		self.sys_font = font.Font(None, 36) 
+		self.spider_group = sprite.Group()
 		
 	def event_update(self):
 		events = event.get()
