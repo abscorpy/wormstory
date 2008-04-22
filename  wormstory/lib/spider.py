@@ -12,5 +12,4 @@ class spider(sprite.Sprite):
 		self.speed = 5
 
 	def update(self):
-		self.rect = self.rect.move(
-			self.g.j.all_axis[7] * self.speed, self.g.j.all_axis[4] * self.speed)
+		self.rect = self.g.j.local_spider_move(self.rect, self.speed)
