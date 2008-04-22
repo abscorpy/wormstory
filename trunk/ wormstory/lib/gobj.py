@@ -2,7 +2,7 @@
 
 from game_utils import game_utils
 from pygame import *
-from jioe import jioe
+from jdriver import jdriver
 
 class gobj(object):
 	def __init__(self):
@@ -27,7 +27,7 @@ class gobj(object):
 		
 		self.joystick = joystick.Joystick(0)
 		self.joystick.init()
-		self.j = jioe()
+		self.j = jdriver()
 		self.sys_font = font.Font(None, 36) 
 		self.spider_group = sprite.Group()
 		
