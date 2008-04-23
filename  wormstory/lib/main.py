@@ -14,7 +14,7 @@ if __name__ == "__main__":
 	spider = spider(g, (100,300))
 #	g.spider_group.add(spider)
 
-	while not g.j.quit and not (9 in g.j.down) and not (21 in g.j.down):
+	while not g.j.quit and not g.j.all_buttons[9]['down'] and not g.j.all_buttons[21]['down']:
 		g.event_update()
 		spider.update()
 #		g.spider_group.update()
@@ -24,7 +24,6 @@ if __name__ == "__main__":
 		draw.line(g.screen, (255, 255, 255), 
 			(spider.rect.left, spider.rect.top - 1), 
 			(spider.rect.left + g.j.all_buttons[18]['pressed_time'] * 5, spider.rect.top - 5), 3)
-
 
 #		print 'top: %s' %spider.rect.top
 #		print 'left: %s' %spider.rect.left

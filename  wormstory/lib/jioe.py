@@ -12,14 +12,15 @@ class jioe(object):
         self.reset()
     
     def update(self,events):
-        self.up=[j.button for j in events if j.type==JOYBUTTONUP]
-        self.down=[j.button for j in events if j.type==JOYBUTTONDOWN]
-
-        for i in self.down:
-            self.all_buttons[i]['pressed'] = 1
-
-        for i in self.up:
-            self.all_buttons[i]['pressed'] = 0
+        self.reset_up_down()
+        
+        for j in events:
+            if j.type == JOYBUTTONDOWN:
+                self.all_buttons[j.button]['down'] = 1
+                self.all_buttons[j.button]['pressed'] = 1
+            elif j.type == JOYBUTTONUP:
+                self.all_buttons[j.button]['up'] = 1
+                self.all_buttons[j.button]['pressed'] = 0
 
         for i in range(0, self.buttons):
             if self.all_buttons[i]['pressed'] :
@@ -35,11 +36,15 @@ class jioe(object):
                 self.all_axis[j.axis] = j.value
     
     def reset(self):
-        self.up=[]
-        self.down=[]
         self.quit=[]
         self.user=[]
         self.all_axis={}
         self.all_buttons = {}
         for i in range(0, self.buttons):
             self.all_buttons[i] = {}
+        self.reset_up_down()
+
+    def reset_up_down(self):
+        for i in range(0, self.buttons):
+            self.all_buttons[i]['down'] = 0
+            self.all_buttons[i]['up'] = 0
