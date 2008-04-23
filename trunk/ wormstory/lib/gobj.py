@@ -3,6 +3,8 @@
 from game_utils import game_utils
 from pygame import *
 from jdriver import jdriver
+from spider import spider
+from game_debug import game_debug
 
 class gobj(object):
 	def __init__(self):
@@ -28,7 +30,9 @@ class gobj(object):
 
 		self.j = jdriver()
 		self.sys_font = font.Font(None, 36) 
-		self.spider_group = sprite.Group()
+#		self.spider_group = sprite.Group()
+		self.slave_spider = spider(self, (100,300))
+		self.debug = game_debug(self)
 		
 	def event_update(self):
 		events = event.get()
