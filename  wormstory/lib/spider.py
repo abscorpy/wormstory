@@ -7,7 +7,7 @@ class spider(sprite.Sprite):
 	def __init__(self, g, center):
 		self.g = g
 		sprite.Sprite.__init__(self) #call Sprite initializer
-		self.image = self.g.u.load_image('spider_s.png', -1)
+		self.image = self.g.spider_image
 		self.rect = self.image.get_rect(center=center)
 		self.speed = 5
 
