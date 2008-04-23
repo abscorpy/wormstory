@@ -19,7 +19,13 @@ if __name__ == "__main__":
 		spider.update()
 #		g.spider_group.update()
 		s.draw()
-		g.screen.blit(spider.image.convert_alpha(), (spider.rect.top, spider.rect.left))
+		g.screen.blit(spider.image.convert_alpha(), (spider.rect.left, spider.rect.top))
+
+		draw.line(g.screen, (255, 255, 255), 
+			(spider.rect.left, spider.rect.top - 1), 
+			(spider.rect.left + g.j.all_buttons[18]['pressed_time'] * 5, spider.rect.top - 5), 3)
+
+
 #		print 'top: %s' %spider.rect.top
 #		print 'left: %s' %spider.rect.left
 #		g.spider_group.draw(g.screen)
