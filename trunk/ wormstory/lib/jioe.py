@@ -6,43 +6,40 @@ from pygame import *
 class jioe(object):
 
     def __init__(self):
-        #Creates local variables
+        self.twin_joystick = joystick.Joystick(0)
+        self.twin_joystick.init()
+        self.buttons = self.twin_joystick.get_numbuttons()
         self.reset()
     
     def update(self,events):
-        """Dump the event list from pygame and it will sort them into lists for up, pressed, down, quit and user.
-        When an up event is processed that key is removed from the pressed list and vice versa for down events."""
-        #for every key released add the key to the up list
         self.up=[j.button for j in events if j.type==JOYBUTTONUP]
-         #fill the down list the same way as the up list
         self.down=[j.button for j in events if j.type==JOYBUTTONDOWN]
-        #remove any keys that were somehow pressed twice without being released or where pressed and released in one frame.
+
         for i in self.down:
-            self.pressed=[x for x in self.pressed if x != i]
-        #If a key is pushed down then it is being pressed until it is let up
-        self.pressed+=self.down
-        #for each key in the up list, filter those keys from the pressed list
+            self.all_buttons[i]['pressed'] = 1
+
         for i in self.up:
-            self.pressed=[x for x in self.pressed if x != i]
-        #quit and user actions don't have key values so they are just added directly to respective lists
+            self.all_buttons[i]['pressed'] = 0
+
+        for i in range(0, self.buttons):
+            if self.all_buttons[i]['pressed'] :
+                self.all_buttons[i]['pressed_time'] += 1
+            else:
+                self.all_buttons[i]['pressed_time'] = 0
+
         self.quit=[k for k in events if k.type==QUIT]
         self.user=[e for e in events if e.type==USEREVENT]
 
-        # handle the joystick's axis.
-        
-        # Just has a TWIN USB JOYSTICK.
-        # If system have two joystick, it will has bug.
         for j in events:
             if j.type == JOYAXISMOTION:
                 self.all_axis[j.axis] = j.value
-        
-        
+    
     def reset(self):
-        """Empties all the lists. Use this when going back to a menu otherwise keys could be stuck in the pressed list.""" 
-        #clears all the lists by setting them equal to an empty list.
         self.up=[]
         self.down=[]
-        self.pressed=[]
         self.quit=[]
         self.user=[]
         self.all_axis={}
+        self.all_buttons = {}
+        for i in range(0, self.buttons):
+            self.all_buttons[i] = {}

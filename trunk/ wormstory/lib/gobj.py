@@ -24,9 +24,7 @@ class gobj(object):
 		self.red_block_image = self.u.load_image('rsblock.png')
 		self.blue_block_image = self.u.load_image('bsblock.png')
 		self.green_block_image = self.u.load_image('gsblock.png')
-		
-		self.joystick = joystick.Joystick(0)
-		self.joystick.init()
+
 		self.j = jdriver()
 		self.sys_font = font.Font(None, 36) 
 		self.spider_group = sprite.Group()
