@@ -24,6 +24,7 @@ class gobj(object):
 		self.red_block_image = self.u.load_image('rsblock.png')
 		self.blue_block_image = self.u.load_image('bsblock.png')
 		self.green_block_image = self.u.load_image('gsblock.png')
+		self.spider_image = self.u.load_image('spider_s.png', -1)
 
 		self.j = jdriver()
 		self.sys_font = font.Font(None, 36) 
