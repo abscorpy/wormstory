@@ -22,11 +22,11 @@ class jioe(object):
                 self.all_buttons[j.button]['up'] = 1
                 self.all_buttons[j.button]['pressed'] = 0
 
-        for i in range(0, self.buttons):
-            if self.all_buttons[i]['pressed'] :
-                self.all_buttons[i]['pressed_time'] += 1
-            else:
-                self.all_buttons[i]['pressed_time'] = 0
+#        for i in range(0, self.buttons):
+#            if self.all_buttons[i]['pressed'] :
+#                self.all_buttons[i]['pressed_time'] += 1
+#            else:
+#                self.all_buttons[i]['pressed_time'] = 0
 
         self.quit=[k for k in events if k.type==QUIT]
         self.user=[e for e in events if e.type==USEREVENT]
