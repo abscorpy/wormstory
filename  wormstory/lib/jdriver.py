@@ -27,6 +27,10 @@ class jdriver(jioe):
 	def local_spider_move(self, rect, speed):
 		self.SLAVE_X_still, self.SLAVE_Y_still = self.reset_still(
 			self.SLAVE_X, self.SLAVE_Y, self.SLAVE_X_still, self.SLAVE_Y_still)
-		new_rect = rect.move(
-			self.SLAVE_X_still * speed, self.SLAVE_Y_still * speed )
+		if self.all_buttons[12]['down']:
+			new_rect = rect.move(
+				self.SLAVE_X_still * (speed * 2), self.SLAVE_Y_still * (speed*2) )
+		else:
+			new_rect = rect.move(
+				self.SLAVE_X_still * (speed/2), self.SLAVE_Y_still * (speed/2) )
 		return new_rect
