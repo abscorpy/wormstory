@@ -30,7 +30,8 @@ class gobj(object):
 
 		self.j = jdriver()
 		self.sys_font = font.Font(None, 36) 
-#		self.spider_group = sprite.Group()
+		self.spider_group = sprite.Group()
+		self.block_group = sprite.Group()
 		self.slave_spider = spider(self, (100,300))
 		self.debug = game_debug(self)
 		
