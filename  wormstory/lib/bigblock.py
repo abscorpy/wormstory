@@ -1,10 +1,40 @@
 # I am a bigblock
 from pygame import *
+from random import randint
 
 class bigblock(sprite.Sprite):
-	def __init__(self, g, color, topleft):
+	def __init__(self, g, id, color, topleft):
 		self.g = g
 		sprite.Sprite.__init__(self)
 		self.image = Surface((200, 200))
-		self.image.fill(color)
 		self.rect = self.image.get_rect(topleft=topleft)
+		self.id = id
+		self.color = color
+		self.reset()
+	
+	def update(self):
+		if not self.active:
+			r = randint(0, 1000)
+			if r < self.g.game_more:
+				self.active = 1
+				self.image.fill(self.color)
+				self.active_time = 0
+		else:
+			if self.g.j.all_buttons[self.id]['down']:
+				self.reset()
+				sound = randint(0, 2)
+				self.g.knock_sounds[sound].play()
+			elif self.active_time > self.g.game_speed:
+				self.reset()
+			else:
+				self.active_time += 1
+	
+	def reset(self):
+		self.active = 0
+		self.image.fill((0, 0, 0))
+		
+				
+			
+			
+			
+		
