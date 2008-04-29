@@ -18,28 +18,21 @@ if __name__ == "__main__":
 	display.flip()
 	spider = spider(g, (100,300))
 	g.spider_group.add(spider)
-	# setup 9 bigblock
-	for x in range(0, 3):
-		for y in range(0, 3):
-			g.groundblock_group.add(bigblock(g, 
-				(randint(0,255),randint(0,255),randint(0,255)), (x * 200,y * 200)))
+	# setup 8 bigblock
+	id = 0
+	joystick_button_list = [7, 2, 6, 0, 3, 5, 1, 4]
+	for y in range(0, 3):
+		for x in range(0, 3):
+			if y == 1 and x == 1:
+				pass
+			else:
+				g.groundblock_group.add(bigblock(g, joystick_button_list[id],
+					(randint(0,255),randint(0,255),randint(0,255)), (x * 200,y * 200)))
+				id += 1
 
 	while not g.j.quit and not g.j.all_buttons[9]['down'] : #21
 		g.event_update()
-	
-#		g.slave_spider.update()
-#		g.spider_group.update()
+		g.groundblock_group.update()
 		s.draw()
-		
 		g.groundblock_group.draw(g.screen)
-		
-#		g.debug.debug_jioe()
-#		m.draw()
-		
-#		g.screen.blit(g.slave_spider.image.convert_alpha(),
-#			(g.slave_spider.rect.left, g.slave_spider.rect.top))
-
-#		g.debug.debug_pressed_time()
-#		g.spider_group.draw(g.screen)
-		
 		display.flip()

@@ -27,6 +27,11 @@ class gobj(object):
 		self.blue_block_image = self.u.load_image('bsblock.png')
 		self.green_block_image = self.u.load_image('gsblock.png')
 		self.spider_image = self.u.load_image('spider_s.png', -1)
+		self.knock_sounds = [
+			self.u.load_sound('25305__freesound__Human_Bomb_ses1.ogg'),
+			self.u.load_sound('32841__ERH__32_shot_b.ogg'),
+			self.u.load_sound('36846__EcoDTR__LaserRocket.ogg')
+			]
 
 		self.j = jdriver()
 		self.sys_font = font.Font(None, 36) 
@@ -35,6 +40,8 @@ class gobj(object):
 		self.groundblock_group = sprite.Group()
 		self.slave_spider = spider(self, (100,300))
 		self.debug = game_debug(self)
+		self.game_more = 5
+		self.game_speed = 50
 		
 	def event_update(self):
 		events = event.get()
