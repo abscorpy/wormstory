@@ -35,4 +35,7 @@ if __name__ == "__main__":
 		g.groundblock_group.update()
 		s.draw()
 		g.groundblock_group.draw(g.screen)
+		g.playinfo_image.blit(
+				g.sys_font.render('123456', 1,
+					(255,100,100)),(10, 10))
 		display.flip()
