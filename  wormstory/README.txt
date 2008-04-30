@@ -21,6 +21,9 @@ LICENSE:
 
 It is placed in the Public Domain -- GPL v3
 
+KEYBROAD SUPPORT:
+
+See in game.
 ----------------------------------------------------------------
 
 Frankie Chow 2008-4-30 ( Hong Kong )
