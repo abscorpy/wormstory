@@ -35,3 +35,21 @@ class game_utils(object):
 				colorkey = image.get_at((0,0))
 			image.set_colorkey(colorkey, RLEACCEL)
 		return image
+	
+	def load_font(self, name):
+		fullname = data.filepath(name)
+		try:
+			font = open(fullname, 'rb')
+			pygame.font.init()
+		except pygame.error, message:
+			print 'Cannot load font:', name
+			raise SystemExit, message
+		return font
+	
+	def play_music(self, name):
+		fullname = data.filepath(name)
+		if pygame.mixer:			
+			pygame.mixer.music.fadeout(1000)
+			pygame.mixer.music.load(fullname)
+			pygame.mixer.music.play(-1)
+			pygame.mixer.music.set_volume(0.8)
