@@ -35,7 +35,7 @@ def main():
 			g.game_info_font.render('Milker\'s Solo Game', 1, 
 					(100,100,100)), (40,200))
 		s.playarea_s.blit(
-			g.game_info_font.render('Copyright (c) by', 1, (100,100,100)), (40,240))	
+			g.game_info_font.render('Copyleft (cl) by', 1, (100,100,100)), (40,240))	
 		s.playarea_s.blit(
 			g.game_info_font.render('http://www.milk2cows.com', 1,
 					(100,100,100)), (50,280))	
