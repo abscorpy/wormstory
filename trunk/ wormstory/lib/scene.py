@@ -14,6 +14,7 @@ class scene(object):
 		self.g.screen.blit(self.playinfo_s, (600,0))
 		self.playarea_s.blit(self.g.playarea_image.convert_alpha(), (0,0))
 		self.playinfo_s.blit(self.g.playinfo_image.convert_alpha(), (0,0))
+		self.playinfo_s.blit(self.g.dancing_block_image.convert_alpha(), (10,10))
 		
 		
 

@@ -14,10 +14,11 @@ class gobj(object):
 		
 		# pygame init()
 		init()
+		mixer.init()
 		# display initialized.
 		self.screen_size = 800, 600
 		self.screen = display.set_mode(self.screen_size)
-		self.main_title = 'Worm story'
+		self.main_title = 'Worm Jumping'
 		self.set_display()
 		
 		self.game_intro_image = self.u.load_image('block.png')
@@ -36,7 +37,10 @@ class gobj(object):
 			]
 
 		self.j = jdriver()
+		self.game_info_font = font.Font(self.u.load_font('graffiti.ttf'), 36)
+		self.game_info_small_font = font.Font(self.u.load_font('station.ttf'), 24)
 		self.sys_font = font.Font(None, 56) 
+		self.u.play_music('coco.ogg')
 		self.spider_group = sprite.Group()
 		self.block_group = sprite.Group()
 		self.groundblock_group = sprite.Group()
