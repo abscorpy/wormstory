@@ -34,8 +34,11 @@ if __name__ == "__main__":
 		g.event_update()
 		g.groundblock_group.update()
 		s.draw()
-		g.groundblock_group.draw(g.screen)
-		g.playinfo_image.blit(
-				g.sys_font.render('123456', 1,
-					(255,100,100)),(10, 10))
+		g.groundblock_group.draw(s.playarea_s)
+		s.playinfo_s.blit(
+				g.sys_font.render('%s' %g.score, 1,
+					(180,0,0)),(10, 10))
+		s.playinfo_s.blit(
+				g.sys_font.render('level: %s' %(g.hit_block/10), 1,
+					(180,0,0)),(10, 450))
 		display.flip()

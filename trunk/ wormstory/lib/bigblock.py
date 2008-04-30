@@ -22,10 +22,13 @@ class bigblock(sprite.Sprite):
 		else:
 			if self.g.j.all_buttons[self.id]['down']:
 				self.reset()
+				self.g.score += 100
+				self.g.hit_block += 1
 				sound = randint(0, 2)
 				self.g.knock_sounds[sound].play()
 			elif self.active_time > self.g.game_speed:
 				self.reset()
+				self.g.score -= 50
 			else:
 				self.active_time += 1
 	

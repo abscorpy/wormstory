@@ -22,7 +22,8 @@ class gobj(object):
 		
 		self.game_intro_image = self.u.load_image('block.png')
 		self.playarea_image = self.u.load_image('S-3-800x600.png')
-		self.playinfo_image = self.u.load_image('h12-200x600.png')
+#		self.playinfo_image = self.u.load_image('h12-200x600.png')
+		self.playinfo_image = self.u.load_image('S-3-200x600.png')
 		self.red_block_image = self.u.load_image('rsblock.png')
 		self.blue_block_image = self.u.load_image('bsblock.png')
 		self.green_block_image = self.u.load_image('gsblock.png')
@@ -34,14 +35,17 @@ class gobj(object):
 			]
 
 		self.j = jdriver()
-		self.sys_font = font.Font(None, 36) 
+		self.sys_font = font.Font(None, 48) 
 		self.spider_group = sprite.Group()
 		self.block_group = sprite.Group()
 		self.groundblock_group = sprite.Group()
 		self.slave_spider = spider(self, (100,300))
 		self.debug = game_debug(self)
-		self.game_more = 5
-		self.game_speed = 50
+		self.score = 0
+		self.hit_block = 0
+		self.game_more = 2 + (self.hit_block / 5)
+		self.game_speed = 100 - (self.hit_block)
+
 		
 	def event_update(self):
 		events = event.get()
