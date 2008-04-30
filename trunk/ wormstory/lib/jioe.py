@@ -6,9 +6,10 @@ from pygame import *
 class jioe(object):
 
     def __init__(self):
-        self.twin_joystick = joystick.Joystick(0)
-        self.twin_joystick.init()
-        self.buttons = self.twin_joystick.get_numbuttons()
+        # Just need first joystick.
+        self.joystick = joystick.Joystick(0)
+        self.joystick.init()
+        self.buttons = self.joystick.get_numbuttons()
         self.reset()
     
     def update(self,events):
@@ -22,11 +23,11 @@ class jioe(object):
                 self.all_buttons[j.button]['up'] = 1
                 self.all_buttons[j.button]['pressed'] = 0
 
-#        for i in range(0, self.buttons):
-#            if self.all_buttons[i]['pressed'] :
-#                self.all_buttons[i]['pressed_time'] += 1
-#            else:
-#                self.all_buttons[i]['pressed_time'] = 0
+        for i in range(0, self.buttons):
+            if self.all_buttons[i]['pressed'] :
+                self.all_buttons[i]['pressed_time'] += 1
+            else:
+                self.all_buttons[i]['pressed_time'] = 0
 
         self.quit=[k for k in events if k.type==QUIT]
         self.user=[e for e in events if e.type==USEREVENT]
@@ -42,6 +43,7 @@ class jioe(object):
         self.all_buttons = {}
         for i in range(0, self.buttons):
             self.all_buttons[i] = {}
+            self.all_buttons[i]['pressed'] = self.all_buttons[i]['pressed_time'] = 0
         self.reset_up_down()
 
     def reset_up_down(self):

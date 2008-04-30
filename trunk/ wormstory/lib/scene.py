@@ -15,6 +15,8 @@ class scene(object):
 		self.playarea_s.blit(self.g.playarea_image.convert_alpha(), (0,0))
 		self.playinfo_s.blit(self.g.playinfo_image.convert_alpha(), (0,0))
 		self.playinfo_s.blit(self.g.dancing_block_image.convert_alpha(), (10,10))
+		if not joystick.get_count():
+			self.playinfo_s.blit(self.g.key_dancing_image.convert_alpha(), (10,220))
 		
 		
 

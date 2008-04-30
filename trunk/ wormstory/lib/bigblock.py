@@ -20,7 +20,7 @@ class bigblock(sprite.Sprite):
 				self.image.fill(self.color)
 				self.active_time = 0
 		else:
-			if self.g.j.all_buttons[self.id]['down']:
+			if self.g.d.io.all_buttons[self.id]['down']:
 				self.reset()
 				self.g.score += 100
 				self.g.hit_block += 1

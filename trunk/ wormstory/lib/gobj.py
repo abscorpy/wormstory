@@ -2,7 +2,7 @@
 
 from game_utils import game_utils
 from pygame import *
-from jdriver import jdriver
+from driver import driver
 
 class gobj(object):
 	def __init__(self):
@@ -22,13 +22,14 @@ class gobj(object):
 		self.playarea_image = self.u.load_image('S-3-800x600.png')
 		self.playinfo_image = self.u.load_image('S-3-200x600.png')
 		self.dancing_block_image = self.u.load_image('dancingblock.png', -1)
+		self.key_dancing_image = self.u.load_image('keydancing.png', -1)
 		self.knock_sounds = [
 			self.u.load_sound('humanbomb.ogg'),
 			self.u.load_sound('shotb.ogg'),
 			self.u.load_sound('laserrocket.ogg')
 			]
 
-		self.j = jdriver()
+		self.d = driver()
 		self.game_info_font = font.Font(self.u.load_font('graffiti.ttf'), 36)
 		self.game_info_small_font = font.Font(self.u.load_font('station.ttf'), 24)
 		self.sys_font = font.Font(None, 56) 
@@ -44,7 +45,7 @@ class gobj(object):
 	
 	def event_update(self):
 		events = event.get()
-		self.j.update(events)
+		self.d.io.update(events)
 
 	def set_display(self):
 		display.set_caption(self.main_title)

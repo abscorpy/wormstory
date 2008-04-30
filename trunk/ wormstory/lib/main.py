@@ -23,7 +23,7 @@ def main():
 				id += 1
 	
 	#title page:
-	while not g.j.quit and not g.j.all_buttons[8]['down']:
+	while not g.d.io.quit and not g.d.io.all_buttons[8]['down']:
 		g.event_update()
 		s.draw()
 		black_g  = Surface((600,600))
@@ -42,15 +42,23 @@ def main():
 		s.playarea_s.blit(
 			g.game_info_font.render('2008-4', 1, 
 					(100,100,100)), (40,320))
-		s.playarea_s.blit(
-			g.game_info_font.render('PRESS [select] TO PLAY', 1, 
-				(0,128,0)), (40,500))
-		s.playarea_s.blit(
-			g.game_info_small_font.render('^^ USE dance-pad TO PLAY', 1, 
-				(0,0,128)), (40,550))
+		if joystick.get_count():
+			s.playarea_s.blit(
+				g.game_info_font.render('PRESS [select] TO PLAY', 1, 
+					(0,128,0)), (40,500))
+			s.playarea_s.blit(
+				g.game_info_small_font.render('^^ USE dance-pad TO PLAY', 1, 
+					(0,0,128)), (40,550))
+		else:
+			s.playarea_s.blit(
+				g.game_info_font.render('PRESS [SPACE] TO PLAY', 1, 
+					(0,128,0)), (40,500))
+			s.playarea_s.blit(
+				g.game_info_small_font.render('^^ USE KEYBROAD TO PLAY', 1, 
+					(0,0,128)), (40,550))
 		display.flip()
 
-	while not g.j.quit and not g.j.all_buttons[9]['down'] : #21
+	while not g.d.io.quit and not g.d.io.all_buttons[9]['down'] : #21
 		g.event_update()
 		if g.score > 0:
 			g.groundblock_group.update()
