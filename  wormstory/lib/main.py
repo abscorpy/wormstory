@@ -1,25 +1,16 @@
 from gobj import gobj
 from scene import scene
 from jioe import jioe
-#from spider import spider
 from pygame import *
-from map import map
-from game_debug import game_debug
 from bigblock import bigblock
 from random import randint
 import data
 
 def main():
 	g = gobj()
-#	gdebug = game_debug(g)
 	s = scene(g)
-	m = map(g)
-	m.set_map_data()
 	s.draw()
 	display.flip()
-#	spider = spider(g, (100,300))
-#	g.spider_group.add(spider)
-	# setup 8 bigblock
 	id = 0
 	joystick_button_list = [7, 2, 6, 0, 3, 5, 1, 4]
 	for y in range(0, 3):
