@@ -15,7 +15,7 @@ class bigblock(sprite.Sprite):
 	def update(self):
 		if not self.active:
 			r = randint(0, 1000)
-			if r < self.g.game_more:
+			if r < (self.g.game_more + (self.g.hit_block / 5)):
 				self.active = 1
 				self.image.fill(self.color)
 				self.active_time = 0
@@ -26,7 +26,7 @@ class bigblock(sprite.Sprite):
 				self.g.hit_block += 1
 				sound = randint(0, 2)
 				self.g.knock_sounds[sound].play()
-			elif self.active_time > self.g.game_speed:
+			elif self.active_time > (self.g.game_speed - self.g.hit_block):
 				self.reset()
 				self.g.score -= 50
 			else:

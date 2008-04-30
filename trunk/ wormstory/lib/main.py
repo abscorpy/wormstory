@@ -32,13 +32,20 @@ if __name__ == "__main__":
 
 	while not g.j.quit and not g.j.all_buttons[9]['down'] : #21
 		g.event_update()
-		g.groundblock_group.update()
+		if g.score > 0:
+			g.groundblock_group.update()
+		else:
+			s.playarea_s.blit(
+				g.sys_font.render('GAMEOVER', 1, (180,0,0)), (210,210))
 		s.draw()
 		g.groundblock_group.draw(s.playarea_s)
 		s.playinfo_s.blit(
+			g.dancing_block_image.convert_alpha(), (10,10)
+			)
+		s.playinfo_s.blit(
 				g.sys_font.render('%s' %g.score, 1,
-					(180,0,0)),(10, 10))
+					(180,0,0)),(10, 520))
 		s.playinfo_s.blit(
 				g.sys_font.render('level: %s' %(g.hit_block/10), 1,
-					(180,0,0)),(10, 450))
+					(180,0,0)),(10, 550))
 		display.flip()

@@ -27,6 +27,7 @@ class gobj(object):
 		self.red_block_image = self.u.load_image('rsblock.png')
 		self.blue_block_image = self.u.load_image('bsblock.png')
 		self.green_block_image = self.u.load_image('gsblock.png')
+		self.dancing_block_image = self.u.load_image('dancingblock.png', -1)
 		self.spider_image = self.u.load_image('spider_s.png', -1)
 		self.knock_sounds = [
 			self.u.load_sound('25305__freesound__Human_Bomb_ses1.ogg'),
@@ -35,16 +36,16 @@ class gobj(object):
 			]
 
 		self.j = jdriver()
-		self.sys_font = font.Font(None, 48) 
+		self.sys_font = font.Font(None, 56) 
 		self.spider_group = sprite.Group()
 		self.block_group = sprite.Group()
 		self.groundblock_group = sprite.Group()
 		self.slave_spider = spider(self, (100,300))
 		self.debug = game_debug(self)
-		self.score = 0
+		self.score = 100
 		self.hit_block = 0
-		self.game_more = 2 + (self.hit_block / 5)
-		self.game_speed = 100 - (self.hit_block)
+		self.game_more = 2
+		self.game_speed = 100
 
 		
 	def event_update(self):
