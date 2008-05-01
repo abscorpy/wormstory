@@ -4,16 +4,36 @@ from pygame import *
 class page(object):
 	def __init__(self, g):
 		self.g = g
+		self.clock = time.Clock()
+		self.mark_time = 3
+		# Set black.
+		self.black_s = Surface((800,600))
+		self.black_s.fill((0,0,0))
+		
+	def mark_page(self):
+		while self.mark_time:
+			self.clock.tick(1)
+			self.mark_time -= 1
+			# black the screen
+			self.g.screen.blit(self.black_s, (0,0))
+			self.g.screen.blit(
+				self.g.cow_logo_image.convert_alpha(), (250,100)
+				)
+			self.g.screen.blit(
+				self.g.game_info_font.render('Milker\'s Solo Game', 1, 
+						(100,100,100)), (200,500))
+			display.flip()
+			
+
 	def title_page(self):
 		#title page:
 		while not self.g.d.io.quit and not self.g.d.io.all_buttons[8]['down']:
+			self.clock.tick(1)
 			self.g.event_update()
 			self.g.s.draw()
 			
-			# Set black.
-			black_s = Surface((600,600))
-			black_s.fill((0,0,0))
-			self.g.s.playarea_s.blit(black_s, (0,0))
+			# black the playarea_s
+			self.g.s.playarea_s.blit(self.black_s, (0,0))
 			
 			self.g.s.playarea_s.blit(
 				self.g.game_info_font.render('Dancing Block', 1, (180,0,0)), (40,150))
@@ -46,6 +66,7 @@ class page(object):
 		
 	def game_page(self):
 		while not self.g.d.io.quit and not self.g.d.io.all_buttons[9]['down'] : #21
+			self.clock.tick(24)
 			self.g.event_update()
 			if self.g.score > 0:
 				self.g.groundblock_group.update()
