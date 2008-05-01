@@ -12,13 +12,13 @@ def main():
 	s.draw()
 	display.flip()
 	id = 0
-	joystick_button_list = [7, 2, 6, 0, 3, 5, 1, 4]
+#	joystick_button_list = [7, 2, 6, 0, 3, 5, 1, 4]
 	for y in range(0, 3):
 		for x in range(0, 3):
 			if y == 1 and x == 1:
 				pass
 			else:
-				g.groundblock_group.add(bigblock(g, joystick_button_list[id],
+				g.groundblock_group.add(bigblock(g, id,
 					(randint(0,255),randint(0,255),randint(0,255)), (x * 200,y * 200)))
 				id += 1
 	
