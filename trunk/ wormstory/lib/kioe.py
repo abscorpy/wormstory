@@ -9,14 +9,14 @@ class kioe(ioe):
     def __init__(self):
         
         self.keymap = {
-            K_a: 0, #a
-            K_x: 1, #x
-            K_w: 2, #w
-            K_d: 3, #d
-            K_c: 4, #c
+            K_q: 0, #a
+            K_w: 1, #x
+            K_e: 2, #w
+            K_a: 3, #d
+            K_d: 4, #c
             K_z: 5, #z
-            K_e: 6, #e
-            K_q: 7, #q
+            K_x: 6, #e
+            K_c: 7, #q
             K_SPACE : 8,
             K_ESCAPE: 9
             }
