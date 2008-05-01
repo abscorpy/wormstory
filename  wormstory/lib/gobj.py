@@ -34,6 +34,7 @@ class gobj(object):
 		self.playinfo_image = self.u.load_image('S-3-200x600.png')
 		self.dancing_block_image = self.u.load_image('dancingblock.png', -1)
 		self.key_dancing_image = self.u.load_image('keydancing.png', -1)
+		self.cow_logo_image = self.u.load_image('mgamelogo.png', -1)
 		
 		# load sound
 		self.knock_sounds = [
