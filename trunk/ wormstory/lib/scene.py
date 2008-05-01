@@ -1,6 +1,6 @@
 # I am the background for worm walking.
 
-from gobj import gobj
+#from gobj import gobj
 from pygame import *
 
 class scene(object):
