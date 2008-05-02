@@ -99,3 +99,29 @@ class page(object):
 					self.g.game_info_font.render('hit: %s' %self.g.hit_block, 1,
 						(180,0,0)),(10, 550))
 			display.flip()
+	
+	def quit_page(self):
+		self.mark_time = 3
+		while self.mark_time:
+			self.clock.tick(1)
+			self.mark_time -= 1
+			self.g.screen.blit(self.black_s, (0,0))
+			self.g.screen.blit(
+				self.g.game_info_font.render('Thank You.', 1, 
+						(100,100,100)),(200,340))
+			self.g.screen.blit(
+				self.g.game_info_font.render('for you play this game.', 1,
+						(100,100,100)), (200,380))
+			display.flip()
+		self.mark_time = 3
+		while self.mark_time:
+			self.clock.tick(1)
+			self.mark_time -= 1
+			self.g.screen.blit(self.black_s, (0,0))
+			self.g.screen.blit(
+				self.g.game_info_font.render('bye !', 1,
+						(100,100,100)), (200,340))
+			display.flip()
+	
+	def configure_page(self):
+		print 'Now not has this page.'

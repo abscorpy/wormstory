@@ -69,6 +69,7 @@ class gobj(object):
 		# page int set.
 		self.GAME_PAGE = 1
 		self.CONFIGURE_PAGE = 2
+		self.QUIT_PAGE = 3
 		
 		# init menu Obj.
 		self.m = menu(self)
