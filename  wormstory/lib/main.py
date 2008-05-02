@@ -11,8 +11,10 @@ def main():
 	goto_page = game.g.p.title_page()
 	if goto_page == game.g.GAME_PAGE:
 		game.g.p.game_page()
-	if goto_page == game.g.CONFIGURE_PAGE:
-		print 'No has page, Now.'
+	elif goto_page == game.g.CONFIGURE_PAGE:
+		game.g.p.configure_page()
+	elif goto_page == game.g.QUIT_PAGE:
+		game.g.p.quit_page()
 
 if __name__ == "__main__":
 	main()
