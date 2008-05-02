@@ -64,6 +64,11 @@ class gobj(object):
 		self.hit_block = 0
 		self.game_more = 2
 		self.game_speed = 100
+		self.menu_choice_id = 0
+		
+		# page int set.
+		self.GAME_PAGE = 1
+		self.CONFIGURE_PAGE = 2
 		
 		# init menu Obj.
 		self.m = menu(self)
