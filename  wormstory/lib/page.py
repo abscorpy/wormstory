@@ -29,14 +29,15 @@ class page(object):
 		self.mark_time = 2
 		while self.mark_time:	
 			self.clock.tick(1)
-			self.mark_time -= 1		
-			self.g.s.playarea_s.blit(
+			self.mark_time -= 1
+			self.g.screen.blit(self.black_s, (0,0))
+			self.g.screen.blit(
 				self.g.game_info_font.render('Copyleft (cl) by', 1, 
 						(100,100,100)),(200,340))
-			self.g.s.playarea_s.blit(
+			self.g.screen.blit(
 				self.g.game_info_font.render('http://www.milk2cows.com', 1,
 						(100,100,100)), (200,380))
-			self.g.s.playarea_s.blit(
+			self.g.screen.blit(
 				self.g.game_info_font.render('2008-4', 1, 
 						(100,100,100)), (200,420))
 			display.flip()
@@ -54,21 +55,24 @@ class page(object):
 			self.g.s.playarea_s.blit(
 				self.g.game_info_font.render('Dancing Block', 1, (180,0,0)), (40,150))
 
+			self.g.m.update()
+			self.g.s.playarea_s.blit(self.g.s.menu_s, (0, 250))
+						
+#			if joystick.get_count():
+#				self.g.s.playarea_s.blit(
+#					self.g.game_info_font.render('PRESS [select] TO PLAY', 1, 
+#						(0,128,0)), (40,500))
+#				self.g.s.playarea_s.blit(
+#					self.g.game_info_small_font.render('^^ USE dance-pad TO PLAY', 1, 
+#						(0,0,128)), (40,550))
+#			else:
+#				self.g.s.playarea_s.blit(
+#					self.g.game_info_font.render('PRESS [SPACE] TO PLAY', 1, 
+#						(0,128,0)), (40,500))
+#				self.g.s.playarea_s.blit(
+#					self.g.game_info_small_font.render('^^ USE KEYBROAD TO PLAY', 1, 
+#						(0,0,128)), (40,550))
 
-			if joystick.get_count():
-				self.g.s.playarea_s.blit(
-					self.g.game_info_font.render('PRESS [select] TO PLAY', 1, 
-						(0,128,0)), (40,500))
-				self.g.s.playarea_s.blit(
-					self.g.game_info_small_font.render('^^ USE dance-pad TO PLAY', 1, 
-						(0,0,128)), (40,550))
-			else:
-				self.g.s.playarea_s.blit(
-					self.g.game_info_font.render('PRESS [SPACE] TO PLAY', 1, 
-						(0,128,0)), (40,500))
-				self.g.s.playarea_s.blit(
-					self.g.game_info_small_font.render('^^ USE KEYBROAD TO PLAY', 1, 
-						(0,0,128)), (40,550))
 			display.flip()
 		
 	def game_page(self):
