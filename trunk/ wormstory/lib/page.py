@@ -45,7 +45,7 @@ class page(object):
 	def title_page(self):
 		#title page:
 		while not self.g.d.io.quit and not self.g.d.io.all_buttons[8]['down']:
-			self.clock.tick(1)
+			self.clock.tick(10)
 			self.g.event_update()
 			self.g.s.draw()
 			
@@ -57,6 +57,9 @@ class page(object):
 
 			self.g.m.update()
 			self.g.s.playarea_s.blit(self.g.s.menu_s, (0, 250))
+			
+			if self.g.d.io.all_buttons[8]['down']:
+				return self.g.menu_choice_id
 						
 #			if joystick.get_count():
 #				self.g.s.playarea_s.blit(
