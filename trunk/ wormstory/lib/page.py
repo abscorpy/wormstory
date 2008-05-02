@@ -5,7 +5,7 @@ class page(object):
 	def __init__(self, g):
 		self.g = g
 		self.clock = time.Clock()
-		self.mark_time = 3
+		self.mark_time = 2
 		# Set black.
 		self.black_s = Surface((800,600))
 		self.black_s.fill((0,0,0))
@@ -14,16 +14,32 @@ class page(object):
 		while self.mark_time:
 			self.clock.tick(1)
 			self.mark_time -= 1
-			# black the screen
-			self.g.screen.blit(self.black_s, (0,0))
 			self.g.screen.blit(
 				self.g.cow_logo_image.convert_alpha(), (250,100)
 				)
+			display.flip()
+		self.mark_time = 2
+		while self.mark_time:	
+			self.clock.tick(1)
+			self.mark_time -= 1
 			self.g.screen.blit(
 				self.g.game_info_font.render('Milker\'s Solo Game', 1, 
 						(100,100,100)), (200,500))
 			display.flip()
-			
+		self.mark_time = 2
+		while self.mark_time:	
+			self.clock.tick(1)
+			self.mark_time -= 1		
+			self.g.s.playarea_s.blit(
+				self.g.game_info_font.render('Copyleft (cl) by', 1, 
+						(100,100,100)),(200,340))
+			self.g.s.playarea_s.blit(
+				self.g.game_info_font.render('http://www.milk2cows.com', 1,
+						(100,100,100)), (200,380))
+			self.g.s.playarea_s.blit(
+				self.g.game_info_font.render('2008-4', 1, 
+						(100,100,100)), (200,420))
+			display.flip()
 
 	def title_page(self):
 		#title page:
@@ -37,17 +53,8 @@ class page(object):
 			
 			self.g.s.playarea_s.blit(
 				self.g.game_info_font.render('Dancing Block', 1, (180,0,0)), (40,150))
-			self.g.s.playarea_s.blit(
-				self.g.game_info_font.render('Milker\'s Solo Game', 1, 
-						(100,100,100)), (40,200))
-			self.g.s.playarea_s.blit(
-				self.g.game_info_font.render('Copyleft (cl) by', 1, (100,100,100)), (40,240))	
-			self.g.s.playarea_s.blit(
-				self.g.game_info_font.render('http://www.milk2cows.com', 1,
-						(100,100,100)), (50,280))	
-			self.g.s.playarea_s.blit(
-				self.g.game_info_font.render('2008-4', 1, 
-						(100,100,100)), (40,320))
+
+
 			if joystick.get_count():
 				self.g.s.playarea_s.blit(
 					self.g.game_info_font.render('PRESS [select] TO PLAY', 1, 
