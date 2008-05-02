@@ -6,6 +6,7 @@ from driver import driver
 from scene import scene
 from page import page
 from bigblock import bigblock
+from menu import menu
 from random import randint
 
 class gobj(object):
@@ -19,7 +20,8 @@ class gobj(object):
 		self.u = game_utils()
 		self.d = driver()
 		self.s = scene(self)
-		self.all_pages = page(self)
+		self.p = page(self)
+		
 		
 		#		self.debug = game_debug(self)
 		
@@ -55,12 +57,16 @@ class gobj(object):
 		self.spider_group = sprite.Group()
 		self.block_group = sprite.Group()
 		self.groundblock_group = sprite.Group()
+		self.menu_group = sprite.Group()
 
 		# base int set.
 		self.score = 100
 		self.hit_block = 0
 		self.game_more = 2
 		self.game_speed = 100
+		
+		# init menu Obj.
+		self.m = menu(self)
 	
 	def event_update(self):
 		events = event.get()

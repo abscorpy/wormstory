@@ -7,9 +7,9 @@ class main_loop(object):
 def main():
 	game = main_loop()
 	game.g.set_bigblock()
-	game.g.all_pages.mark_page()
-	game.g.all_pages.title_page()
-	game.g.all_pages.game_page()
+	game.g.p.mark_page()
+	game.g.p.title_page()
+	game.g.p.game_page()
 	
 if __name__ == "__main__":
 	main()
