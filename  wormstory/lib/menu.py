@@ -1,7 +1,5 @@
 # Hi, I am menu Obj.
 
-from menu_items import menu_configure, menu_play, menu_quit
-
 class menu(object):
 	def __init__(self, g):
 		self.g = g
@@ -9,14 +7,12 @@ class menu(object):
 	
 	def set_menu_group(self):
 		self.g.menu_group.empty()
-		self.m = []
 		self._add_item()
-		self.g.menu_group.add(self.m)
+		for m in self.g.m_dict.keys():
+			self.g.menu_group.add(self.g.m_dict[m])
 
 	def _add_item(self):
-		self.m.append( menu_configure(self.g, 2, (120,50)) )
-		self.m.append( menu_play(self.g, 1, (120,0)) )
-		self.m.append( menu_quit(self.g, 3, (120,100)) )
+		pass
 	
 	def update(self):
 		# Is it a good idea. everytime to recreate the menubar ? 

@@ -14,27 +14,27 @@ class menu_item(sprite.Sprite):
 	def message_title(self, color):
 		self.image = self.g.game_info_font.render(self.title, 1, color)
 	def update(self):
-		if self.g.menu_choice_id == self.id:
+		if self.g.m_dict[self.g.menu_choice_id] == self:
 			self.message_title(self.active_color)
 		else:
 			self.message_title(self.non_active_color)
 
 class menu_play(menu_item):
-	def __init__(self, g, id, location):
-		self.id = id
+	def __init__(self, g, gotopage, location):
+		self.gotopage = gotopage
 		menu_item.__init__(self, g, 'PLAY', location)
 
 class menu_configure(menu_item):
-	def __init__(self, g, id, location):
-		self.id = id
+	def __init__(self, g, gotopage, location):
+		self.gotopage = gotopage
 		menu_item.__init__(self, g, 'CONFIGURE', location)
 
 class menu_quit(menu_item):
-	def __init__(self, g, id, location):
-		self.id = id
+	def __init__(self, g, gotopage, location):
+		self.gotopage = gotopage
 		menu_item.__init__(self, g, 'QUIT', location)
 		
 class menu_back(menu_item):
-	def __init__(self, g, id, location):
-		self.id = id
+	def __init__(self, g, gotopage, location):
+		self.gotopage = gotopage
 		menu_item.__init__(self, g, 'BACK', location)

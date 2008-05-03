@@ -15,6 +15,7 @@ class main_loop(object):
 			self.g.p.quit_page()
 			sys.exit()
 		if not self.g.d.io.quit :
+			# have bug. I don't know why ?
 			return will_go_page
 		else:
 			sys.exit()

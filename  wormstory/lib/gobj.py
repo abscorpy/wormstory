@@ -6,7 +6,7 @@ from driver import driver
 from scene import scene
 from page import page
 from bigblock import bigblock
-from menu import menu
+from main_menu import main_menu
 from configure_menu import configure_menu
 from random import randint
 
@@ -73,8 +73,9 @@ class gobj(object):
 		self.MAIN_PAGE = 0
 		
 		# init menus Obj.
-		self.m = menu(self)
+		self.m_m = main_menu(self)
 		self.c_m = configure_menu(self)
+		self.m_dict = {}
 	
 	def event_update(self):
 		events = event.get()

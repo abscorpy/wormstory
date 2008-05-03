@@ -57,13 +57,13 @@ class page(object):
 
 			# clear the menu_s.
 			self.g.s.menu_s.blit(self.black_s, (0,0))
-			self.g.m.update()
+			self.g.m_m.update()
 			self.g.s.playarea_s.blit(self.g.s.menu_s, (0, 250))
 			
 			# buttons take one and reset it.
 			if self.g.d.io.all_buttons[8]['down']:
 				self.g.d.io.all_buttons[8]['down'] = 0
-				return self.g.menu_choice_id
+				return self.g.m_dict[self.g.menu_choice_id].gotopage
 						
 #			if joystick.get_count():
 #				self.g.s.playarea_s.blit(
@@ -142,16 +142,13 @@ class page(object):
 
 			# clear the menu_s.
 			self.g.s.menu_s.blit(self.black_s, (0,0))
-			
 			self.g.c_m.update()
 			self.g.s.playarea_s.blit(self.g.s.menu_s, (0, 250))
 		
 			# Oh! this isn't my taste.
 			if self.g.d.io.all_buttons[8]['down']:
 				self.g.d.io.all_buttons[8]['down'] = 0
-				if self.g.menu_choice_id == 2:
-					return 0
-				else:
-					return self.g.menu_choice_id
+				print 'mcid: %s' %self.g.menu_choice_id
+				return self.g.m_dict[self.g.menu_choice_id].gotopage
 			
 			display.flip()
