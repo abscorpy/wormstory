@@ -47,7 +47,7 @@ class gobj(object):
 
 		# load fonts
 		self.game_info_font = font.Font(self.u.load_font('graffiti.ttf'), 36)
-		self.game_info_small_font = font.Font(self.u.load_font('station.ttf'), 24)
+		self.game_info_small_font = font.Font(self.u.load_font('station.ttf'), 12)
 		self.sys_font = font.Font(None, 56) 
 		
 		# load music
