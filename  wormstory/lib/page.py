@@ -6,9 +6,6 @@ class page(object):
 		self.g = g
 		self.clock = time.Clock()
 		self.mark_time = 2
-		# Set black.
-		self.black_s = Surface((800,600))
-		self.black_s.fill((0,0,0))
 		
 	def mark_page(self):
 		while self.mark_time:
@@ -30,7 +27,7 @@ class page(object):
 		while self.mark_time:	
 			self.clock.tick(1)
 			self.mark_time -= 1
-			self.g.screen.blit(self.black_s, (0,0))
+			self.g.screen.blit(self.g.s.black_s, (0,0))
 			self.g.screen.blit(
 				self.g.game_info_font.render('Copyleft (cl) by', 1, 
 						(100,100,100)),(200,340))
@@ -50,20 +47,20 @@ class page(object):
 			self.g.s.draw()
 			
 			# black the playarea_s
-			self.g.s.playarea_s.blit(self.black_s, (0,0))
+			self.g.s.playarea_s.blit(self.g.s.black_s, (0,0))
 			
 			self.g.s.playarea_s.blit(
 				self.g.game_info_font.render('Dancing Block', 1, (180,0,0)), (40,150))
 
 			# clear the menu_s.
-			self.g.s.menu_s.blit(self.black_s, (0,0))
+			self.g.s.menu_s.blit(self.g.s.black_s, (0,0))
 			self.g.m_m.update()
-			self.g.s.playarea_s.blit(self.g.s.menu_s, (0, 250))
+			self.g.s.playinfo_s.blit(self.g.s.menu_s, (0, 420))
 			
 			# buttons take one and reset it.
 			if self.g.d.io.all_buttons[8]['down']:
 				self.g.d.io.all_buttons[8]['down'] = 0
-				return self.g.m_dict[self.g.menu_choice_id].gotopage
+				return self.g.m_list[self.g.menu_choice_id].gotopage
 						
 #			if joystick.get_count():
 #				self.g.s.playarea_s.blit(
@@ -109,7 +106,7 @@ class page(object):
 		while self.mark_time:
 			self.clock.tick(1)
 			self.mark_time -= 1
-			self.g.screen.blit(self.black_s, (0,0))
+			self.g.screen.blit(self.g.s.black_s, (0,0))
 			self.g.screen.blit(
 				self.g.game_info_font.render('Thank You.', 1, 
 						(100,100,100)),(200,340))
@@ -121,7 +118,10 @@ class page(object):
 		while self.mark_time:
 			self.clock.tick(1)
 			self.mark_time -= 1
-			self.g.screen.blit(self.black_s, (0,0))
+			self.g.screen.blit(self.g.s.black_s, (0,0))
+			self.g.screen.blit(
+				self.g.cow_logo_image.convert_alpha(), (250,100)
+				)
 			self.g.screen.blit(
 				self.g.game_info_font.render('bye !', 1,
 						(100,100,100)), (200,340))
@@ -135,20 +135,20 @@ class page(object):
 			self.g.s.draw()
 			
 			# black the playarea_s
-			self.g.s.playarea_s.blit(self.black_s, (0,0))
+			self.g.s.playarea_s.blit(self.g.s.black_s, (0,0))
 			
 #			self.g.s.playarea_s.blit(
 #				self.g.game_info_font.render('Dancing Block', 1, (180,0,0)), (40,150))
 
 			# clear the menu_s.
-			self.g.s.menu_s.blit(self.black_s, (0,0))
+			self.g.s.menu_s.blit(self.g.s.black_s, (0,0))
 			self.g.c_m.update()
-			self.g.s.playarea_s.blit(self.g.s.menu_s, (0, 250))
+			self.g.s.playinfo_s.blit(self.g.s.menu_s, (0, 420))
 		
 			# Oh! this isn't my taste.
 			if self.g.d.io.all_buttons[8]['down']:
 				self.g.d.io.all_buttons[8]['down'] = 0
-				print 'mcid: %s' %self.g.menu_choice_id
-				return self.g.m_dict[self.g.menu_choice_id].gotopage
+#				print 'mcid: %s' %self.g.menu_choice_id
+				return self.g.m_list[self.g.menu_choice_id].gotopage
 			
 			display.flip()

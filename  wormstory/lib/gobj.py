@@ -47,6 +47,7 @@ class gobj(object):
 
 		# load fonts
 		self.game_info_font = font.Font(self.u.load_font('graffiti.ttf'), 36)
+		self.menu_info_font = font.Font(self.u.load_font('graffiti.ttf'), 24)
 		self.game_info_small_font = font.Font(self.u.load_font('station.ttf'), 18)
 		self.sys_font = font.Font(None, 56) 
 		
@@ -75,7 +76,7 @@ class gobj(object):
 		# init menus Obj.
 		self.m_m = main_menu(self)
 		self.c_m = configure_menu(self)
-		self.m_dict = {}
+		self.m_list = []
 	
 	def event_update(self):
 		events = event.get()

@@ -10,6 +10,10 @@ class scene(object):
 		self.playinfo_s = Surface((200, 600))
 		self.menu_s = Surface((600, 350))
 		
+		# Set black.
+		self.black_s = Surface((800,600))
+		self.black_s.fill((0,0,0))
+		
 	def draw(self):
 		self.g.screen.blit(self.playarea_s, (0,0))
 		self.g.screen.blit(self.playinfo_s, (600,0))
