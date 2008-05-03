@@ -28,7 +28,6 @@ class menu_configure(menu_item):
 	def __init__(self, g, id, location):
 		self.id = id
 		menu_item.__init__(self, g, 'CONFIGURE', location)
-		
 
 class menu_quit(menu_item):
 	def __init__(self, g, id, location):
@@ -36,6 +35,6 @@ class menu_quit(menu_item):
 		menu_item.__init__(self, g, 'QUIT', location)
 		
 class menu_back(menu_item):
-	def __init__(self, g, id):
+	def __init__(self, g, id, location):
 		self.id = id
-		menu_item.__init__(self, g, 'QUIT', (120,100))
+		menu_item.__init__(self, g, 'BACK', location)

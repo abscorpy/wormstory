@@ -7,6 +7,7 @@ from scene import scene
 from page import page
 from bigblock import bigblock
 from menu import menu
+from configure_menu import configure_menu
 from random import randint
 
 class gobj(object):
@@ -21,8 +22,7 @@ class gobj(object):
 		self.d = driver()
 		self.s = scene(self)
 		self.p = page(self)
-		
-		
+			
 		#		self.debug = game_debug(self)
 		
 		# display initialized.
@@ -47,7 +47,7 @@ class gobj(object):
 
 		# load fonts
 		self.game_info_font = font.Font(self.u.load_font('graffiti.ttf'), 36)
-		self.game_info_small_font = font.Font(self.u.load_font('station.ttf'), 12)
+		self.game_info_small_font = font.Font(self.u.load_font('station.ttf'), 18)
 		self.sys_font = font.Font(None, 56) 
 		
 		# load music
@@ -70,9 +70,11 @@ class gobj(object):
 		self.GAME_PAGE = 1
 		self.CONFIGURE_PAGE = 2
 		self.QUIT_PAGE = 3
+		self.MAIN_PAGE = 0
 		
-		# init menu Obj.
+		# init menus Obj.
 		self.m = menu(self)
+		self.c_m = configure_menu(self)
 	
 	def event_update(self):
 		events = event.get()

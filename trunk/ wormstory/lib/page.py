@@ -42,9 +42,9 @@ class page(object):
 						(100,100,100)), (200,420))
 			display.flip()
 
-	def title_page(self):
+	def main_page(self):
 		#title page:
-		while not self.g.d.io.quit and not self.g.d.io.all_buttons[8]['down']:
+		while not self.g.d.io.quit : # and not self.g.d.io.all_buttons[8]['down']:
 			self.clock.tick(10)
 			self.g.event_update()
 			self.g.s.draw()
@@ -55,10 +55,14 @@ class page(object):
 			self.g.s.playarea_s.blit(
 				self.g.game_info_font.render('Dancing Block', 1, (180,0,0)), (40,150))
 
+			# clear the menu_s.
+			self.g.s.menu_s.blit(self.black_s, (0,0))
 			self.g.m.update()
 			self.g.s.playarea_s.blit(self.g.s.menu_s, (0, 250))
 			
+			# buttons take one and reset it.
 			if self.g.d.io.all_buttons[8]['down']:
+				self.g.d.io.all_buttons[8]['down'] = 0
 				return self.g.menu_choice_id
 						
 #			if joystick.get_count():
@@ -124,4 +128,30 @@ class page(object):
 			display.flip()
 	
 	def configure_page(self):
-		print 'Now not has this page.'
+#		print 'CP Out!!'
+		while not self.g.d.io.quit :
+			self.clock.tick(10)
+			self.g.event_update()
+			self.g.s.draw()
+			
+			# black the playarea_s
+			self.g.s.playarea_s.blit(self.black_s, (0,0))
+			
+#			self.g.s.playarea_s.blit(
+#				self.g.game_info_font.render('Dancing Block', 1, (180,0,0)), (40,150))
+
+			# clear the menu_s.
+			self.g.s.menu_s.blit(self.black_s, (0,0))
+			
+			self.g.c_m.update()
+			self.g.s.playarea_s.blit(self.g.s.menu_s, (0, 250))
+		
+			# Oh! this isn't my taste.
+			if self.g.d.io.all_buttons[8]['down']:
+				self.g.d.io.all_buttons[8]['down'] = 0
+				if self.g.menu_choice_id == 2:
+					return 0
+				else:
+					return self.g.menu_choice_id
+			
+			display.flip()
