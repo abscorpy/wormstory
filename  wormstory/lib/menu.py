@@ -6,17 +6,21 @@ class menu(object):
 	def __init__(self, g):
 		self.g = g
 		self.g.menu_choice_id = 1
-		self._add_item()
 	
+	def set_menu_group(self):
+		self.g.menu_group.empty()
+		self.m = []
+		self._add_item()
+		self.g.menu_group.add(self.m)
+
 	def _add_item(self):
-		self.m_c = menu_configure(self.g, 2, (120,50))
-		self.m_p = menu_play(self.g, 1, (120,0))
-		self.m_q = menu_quit(self.g, 3, (120,100))
-		self.g.menu_group.add(self.m_c)
-		self.g.menu_group.add(self.m_p)
-		self.g.menu_group.add(self.m_q)
+		self.m.append( menu_configure(self.g, 2, (120,50)) )
+		self.m.append( menu_play(self.g, 1, (120,0)) )
+		self.m.append( menu_quit(self.g, 3, (120,100)) )
 	
 	def update(self):
+		# Is it a good idea. everytime to recreate the menubar ? 
+		self.set_menu_group()
 		if self.g.menu_choice_id < len(self.g.menu_group.sprites()):
 			if self.g.d.io.all_buttons[6]['down']:
 				self.g.menu_choice_id += 1
