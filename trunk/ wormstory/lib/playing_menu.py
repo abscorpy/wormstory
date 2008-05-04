@@ -1,7 +1,7 @@
 # Hi I am playing menu
 
 from menu import menu
-from menu_items import menu_quit, menu_configure, menu_back
+from menu_title_items import menu_quit, menu_configure, menu_back
 
 class playing_menu(menu):
 	def _add_item(self):						

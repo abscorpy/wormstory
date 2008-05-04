@@ -110,10 +110,11 @@ class page(object):
 				self.g.p_m.update()
 				self.g.s.playarea_s.blit(self.g.s.menu_s, (211, 201))
 				
-				self.__check_playing_configure_state(0)
-				if self.g.d.io.all_buttons[8]['down']:	
-					if self.g.m_list[self.g.menu_choice_id].gotopage == self.g.QUIT_PAGE or \
-						self.g.m_list[self.g.menu_choice_id].gotopage == self.g.CONFIGURE_PAGE :
+#				self.__check_playing_configure_state(0)
+				if self.g.d.io.all_buttons[8]['down']:
+					self.g.d.io.all_buttons[8]['down'] = 0
+					self.playing_configure_state = 0
+					if not self.g.m_list[self.g.menu_choice_id].gotopage == self.g.GAME_PAGE:
 						return self.g.m_list[self.g.menu_choice_id].gotopage
 			
 			self.g.s.playinfo_s.blit(
