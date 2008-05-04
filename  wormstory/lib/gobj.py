@@ -88,6 +88,9 @@ class gobj(object):
 	def set_display(self):
 		display.set_caption(self.main_title)
 		display.toggle_fullscreen()
+		
+		#non-display mouse curse
+		mouse.set_visible(0)
 
 	def set_bigblock(self):
 		# init the big blocks

@@ -1,7 +1,7 @@
 # Hi I am configure menu
 
 from menu import menu
-from menu_items import menu_play, menu_quit, menu_main
+from menu_title_items import menu_play, menu_quit, menu_main
 
 class configure_menu(menu):
 	def _add_item(self):						

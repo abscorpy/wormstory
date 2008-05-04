@@ -1,6 +1,6 @@
 # Hi, I am menu Obj.
 
-from menu_items import menu_configure, menu_play, menu_quit
+from menu_title_items import menu_configure, menu_play, menu_quit
 from menu import menu
 
 class main_menu(menu):
