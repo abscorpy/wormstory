@@ -23,7 +23,8 @@ class menu(object):
 		if self.g.menu_choice_id > 0:
 			if self.g.d.io.all_buttons[1]['down']:
 				self.g.menu_choice_id -= 1
-				
+		
+		self.g.s.menu_s.blit(self.g.menu_background_image, (0,0))
 		self.g.menu_group.update()
 		self.g.menu_group.draw(self.g.s.menu_s)
 		self.g.s.playarea_s.blit(

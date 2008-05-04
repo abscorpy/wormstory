@@ -8,6 +8,7 @@ from page import page
 from bigblock import bigblock
 from main_menu import main_menu
 from configure_menu import configure_menu
+from playing_menu import playing_menu
 from random import randint
 
 class gobj(object):
@@ -37,6 +38,7 @@ class gobj(object):
 		self.dancing_block_image = self.u.load_image('dancingblock.png', -1)
 		self.key_dancing_image = self.u.load_image('keydancing.png', -1)
 		self.cow_logo_image = self.u.load_image('mgamelogo.png', -1)
+		self.menu_background_image = self.u.load_image('menu_background.png')
 		
 		# load sound
 		self.knock_sounds = [
@@ -76,6 +78,7 @@ class gobj(object):
 		# init menus Obj.
 		self.m_m = main_menu(self)
 		self.c_m = configure_menu(self)
+		self.p_m = playing_menu(self)
 		self.m_list = []
 	
 	def event_update(self):
@@ -84,7 +87,7 @@ class gobj(object):
 
 	def set_display(self):
 		display.set_caption(self.main_title)
-#		display.toggle_fullscreen()
+		display.toggle_fullscreen()
 
 	def set_bigblock(self):
 		# init the big blocks

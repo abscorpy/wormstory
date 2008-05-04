@@ -6,6 +6,7 @@ class page(object):
 		self.g = g
 		self.clock = time.Clock()
 		self.mark_time = 2
+		self.playing_configure_state = 0
 		
 	def mark_page(self):
 		while self.mark_time:
@@ -78,18 +79,43 @@ class page(object):
 #						(0,0,128)), (40,550))
 
 			display.flip()
-		
+			
+	def __check_playing_configure_state(self, t):
+		if self.g.d.io.all_buttons[8]['down']:
+			self.g.d.io.all_buttons[8]['down'] = 0
+			self.playing_configure_state = t
+					
 	def game_page(self):
-		while not self.g.d.io.quit and not self.g.d.io.all_buttons[9]['down'] : #21
+		self.mark_time = 72
+		while self.mark_time : # and not self.g.d.io.all_buttons[9]['down'] : #21
 			self.clock.tick(24)
 			self.g.event_update()
-			if self.g.score > 0:
+			
+			# draw the background.
+			self.g.s.draw()
+
+			if self.g.score > 0 and not self.playing_configure_state:
 				self.g.groundblock_group.update()
-			else:
+				self.g.groundblock_group.draw(self.g.s.playarea_s)
+				self.__check_playing_configure_state(1)
+			elif self.g.score <= 0:
 				self.g.s.playarea_s.blit(
 					self.g.game_info_font.render('GAMEOVER', 1, (180,0,0)), (210,210))
-			self.g.s.draw()
-			self.g.groundblock_group.draw(self.g.s.playarea_s)
+				self.g.s.playarea_s.blit(
+					self.g.game_info_small_font.render('http://www.milk2cows.com/dancingblock', 1,
+				(0,0,128)), (40,570))
+				self.mark_time -= 1
+			elif self.playing_configure_state:
+				self.g.s.playarea_s.blit(self.g.menu_background_image , (211, 201))
+				self.g.p_m.update()
+				self.g.s.playarea_s.blit(self.g.s.menu_s, (211, 201))
+				
+				self.__check_playing_configure_state(0)
+				if self.g.d.io.all_buttons[8]['down']:	
+					if self.g.m_list[self.g.menu_choice_id].gotopage == self.g.QUIT_PAGE or \
+						self.g.m_list[self.g.menu_choice_id].gotopage == self.g.CONFIGURE_PAGE :
+						return self.g.m_list[self.g.menu_choice_id].gotopage
+			
 			self.g.s.playinfo_s.blit(
 					self.g.game_info_font.render('s: %s' %self.g.score, 1,
 						(180,0,0)),(10, 470))
@@ -100,6 +126,7 @@ class page(object):
 					self.g.game_info_font.render('hit: %s' %self.g.hit_block, 1,
 						(180,0,0)),(10, 550))
 			display.flip()
+		return self.g.QUIT_PAGE
 	
 	def quit_page(self):
 		self.mark_time = 3
