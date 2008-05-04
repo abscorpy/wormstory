@@ -16,5 +16,8 @@ class menu_item(sprite.Sprite):
 	def update(self):
 		if self.g.m_list[self.g.menu_choice_id] == self:
 			self.message_title(self.active_color)
+			self.__update_addon()
 		else:
 			self.message_title(self.non_active_color)
+	def __update_addon(self):
+		pass
