@@ -8,7 +8,7 @@ class scene(object):
 		self.g = g
 		self.playarea_s = Surface((600, 600))
 		self.playinfo_s = Surface((200, 600))
-		self.menu_s = Surface((600, 350))
+		self.menu_s = Surface((200, 180))
 		
 		# Set black.
 		self.black_s = Surface((800,600))

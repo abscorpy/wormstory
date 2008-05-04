@@ -35,3 +35,7 @@ class menu_quit(menu_item):
 class menu_back(menu_item):
 	def __init__(self, g, gotopage, location):
 		menu_item.__init__(self, g, 'BACK', location, gotopage)
+		
+class menu_main(menu_item):
+	def __init__(self, g, gotopage, location):
+		menu_item.__init__(self, g, 'MAIN', location, gotopage)
