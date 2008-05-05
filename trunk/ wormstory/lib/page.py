@@ -164,14 +164,15 @@ class page(object):
 			
 			# black the playarea_s
 			self.g.s.playarea_s.blit(self.g.s.black_s, (0,0))
-			
-#			self.g.s.playarea_s.blit(
-#				self.g.game_info_font.render('Dancing Block', 1, (180,0,0)), (40,150))
 
 			# clear the menu_s.
 			self.g.s.menu_s.blit(self.g.s.black_s, (0,0))
 			self.g.c_m.update()
 			self.g.s.playinfo_s.blit(self.g.s.menu_s, (0, 420))
+			
+#			self.g.s.menu_choicebar_s.blit(self.g.s.black_s, (0,0))
+#			self.g.c_b_m.update()
+#			self.g.s.playarea_s.blit(self.g.s.menu_choicebar_s, (0, 250))
 		
 			# Oh! this isn't my taste.
 			if self.g.d.io.all_buttons[8]['down']:
