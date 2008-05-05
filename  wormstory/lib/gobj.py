@@ -9,6 +9,7 @@ from bigblock import bigblock
 from main_menu import main_menu
 from configure_menu import configure_menu
 from playing_menu import playing_menu
+from configure_bar_menu import configure_bar_menu
 from random import randint
 
 class gobj(object):
@@ -68,6 +69,7 @@ class gobj(object):
 		self.game_more = 2
 		self.game_speed = 100
 		self.menu_choice_id = 0
+		self.menu_choicebar_id = 0
 		
 		# page int set.
 		self.GAME_PAGE = 1
@@ -79,6 +81,7 @@ class gobj(object):
 		self.m_m = main_menu(self)
 		self.c_m = configure_menu(self)
 		self.p_m = playing_menu(self)
+		self.c_b_m = configure_bar_menu(self)
 		self.m_list = []
 	
 	def event_update(self):
