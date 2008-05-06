@@ -1,10 +1,11 @@
 # Hi, I am menu Obj.
 
 class menu(object):
-	def __init__(self, g, s):
+	def __init__(self, g, s, background_image=None):
 		self.g = g
 		self.s = s
 		self.g.menu_choice_id = 0
+		self.background_image = background_image
 	
 	def set_menu_group(self):
 		self.g.menu_group.empty()
@@ -25,7 +26,9 @@ class menu(object):
 			if self.g.d.io.all_buttons[1]['down']:
 				self.g.menu_choice_id -= 1
 		
-		self.s.blit(self.g.menu_background_image, (0,0))
+		if self.background_image:
+			self.s.blit(self.background_image, (0,0))
+		
 		self.g.menu_group.update()
 		self.g.menu_group.draw(self.s)
 		self.g.s.playarea_s.blit(

@@ -8,6 +8,7 @@ from page import page
 from bigblock import bigblock
 from main_menu import main_menu
 from configure_menu import configure_menu
+from configure_game_menu import configure_game_menu
 from playing_menu import playing_menu
 from random import randint
 
@@ -68,18 +69,18 @@ class gobj(object):
 		self.game_more = 2
 		self.game_speed = 100
 		self.menu_choice_id = 0
-		self.menu_choicebar_id = 0
 		
 		# page int set.
 		self.GAME_PAGE = 1
 		self.CONFIGURE_PAGE = 2
 		self.QUIT_PAGE = 3
-		self.MAIN_PAGE = 0
+		self.MAIN_PAGE = 4
 		
 		# init menus Obj.
-		self.m_m = main_menu(self, self.s.menu_s)
-		self.c_m = configure_menu(self, self.s.menu_s)
-		self.p_m = playing_menu(self, self.s.menu_s)
+		self.m_m = main_menu(self, self.s.menu_s, self.menu_background_image)
+		self.c_m = configure_menu(self, self.s.menu_s, self.menu_background_image)
+		self.p_m = playing_menu(self, self.s.menu_s, self.menu_background_image)
+		self.c_g_m = configure_game_menu(self, self.s.menu_choicebar_s, self.menu_background_image)
 		self.m_list = []
 	
 	def event_update(self):
