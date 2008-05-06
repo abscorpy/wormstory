@@ -9,6 +9,7 @@ from bigblock import bigblock
 from main_menu import main_menu
 from configure_menu import configure_menu
 from configure_game_menu import configure_game_menu
+from choicebar import choicebar
 from playing_menu import playing_menu
 from random import randint
 
@@ -82,6 +83,7 @@ class gobj(object):
 		self.c_m = configure_menu(self, self.s.menu_s, self.menu_background_image)
 		self.p_m = playing_menu(self, self.s.menu_s, self.menu_background_image)
 		self.c_g_m = configure_game_menu(self, self.s.menu_choicebar_s, self.menu_background2_image)
+		self.choicebar = choicebar(self, self.s.menu_choicebar_s)
 		self.m_list = []
 	
 	def event_update(self):
