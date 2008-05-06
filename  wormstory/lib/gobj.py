@@ -70,6 +70,8 @@ class gobj(object):
 		self.hit_block = 0
 		self.game_more = 2
 		self.game_speed = 100
+		# Now is not have any meaning about game_keep.
+		self.game_keep = 170
 		self.menu_choice_id = 0
 		
 		# page int set.
