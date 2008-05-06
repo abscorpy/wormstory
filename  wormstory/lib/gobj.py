@@ -40,6 +40,7 @@ class gobj(object):
 		self.key_dancing_image = self.u.load_image('keydancing.png', -1)
 		self.cow_logo_image = self.u.load_image('mgamelogo.png', -1)
 		self.menu_background_image = self.u.load_image('menu_background.png')
+		self.menu_background2_image = self.u.load_image('menu_background2.png')
 		
 		# load sound
 		self.knock_sounds = [
@@ -80,7 +81,7 @@ class gobj(object):
 		self.m_m = main_menu(self, self.s.menu_s, self.menu_background_image)
 		self.c_m = configure_menu(self, self.s.menu_s, self.menu_background_image)
 		self.p_m = playing_menu(self, self.s.menu_s, self.menu_background_image)
-		self.c_g_m = configure_game_menu(self, self.s.menu_choicebar_s, self.menu_background_image)
+		self.c_g_m = configure_game_menu(self, self.s.menu_choicebar_s, self.menu_background2_image)
 		self.m_list = []
 	
 	def event_update(self):
