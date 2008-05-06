@@ -1,10 +1,9 @@
 # Hi, I am menu Obj.
 
-
-
 class menu(object):
-	def __init__(self, g):
+	def __init__(self, g, s):
 		self.g = g
+		self.s = s
 		self.g.menu_choice_id = 0
 	
 	def set_menu_group(self):

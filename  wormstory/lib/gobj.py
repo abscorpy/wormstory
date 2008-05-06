@@ -78,10 +78,10 @@ class gobj(object):
 		self.MAIN_PAGE = 0
 		
 		# init menus Obj.
-		self.m_m = main_menu(self)
-		self.c_m = configure_menu(self)
-		self.p_m = playing_menu(self)
-		self.c_b_m = configure_bar_menu(self)
+		self.m_m = main_menu(self, self.s.menu_s)
+		self.c_m = configure_menu(self, self.s.menu_s)
+		self.p_m = playing_menu(self, self.s.menu_s)
+#		self.c_b_m = configure_bar_menu(self)
 		self.m_list = []
 	
 	def event_update(self):
