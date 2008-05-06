@@ -193,6 +193,9 @@ class page(object):
 			if not menu_state:
 				self.g.s.menu_choicebar_s.blit(self.g.s.black_s, (0,0))
 				self.g.c_g_m.update()
+				# Now just try it.
+				self.g.choicebar.set_pos((220, self.g.menu_choice_id * 30 + 60))
+				self.g.choicebar.update()
 				self.g.s.playarea_s.blit(self.g.s.menu_choicebar_s, (0,250))
 				
 				if self.g.d.io.all_buttons[8]['down']:
