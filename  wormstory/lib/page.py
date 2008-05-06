@@ -68,7 +68,8 @@ class page(object):
 
 	def main_page(self):
 		#title page:
-		self.g.menu_choice_id = 0	
+		self.g.menu_choice_id = 0
+		self.g.m_m.set_menu_group()
 		while not self.g.d.io.quit : # and not self.g.d.io.all_buttons[8]['down']:
 			self.clock.tick(10)
 			self.g.event_update()
@@ -96,6 +97,7 @@ class page(object):
 		menu_state = 0
 		self.g.menu_choice_id = 0
 		self.mark_time = 72
+		self.g.p_m.set_menu_group()
 		while self.mark_time : # and not self.g.d.io.all_buttons[9]['down'] : #21
 			self.clock.tick(24)
 			self.g.event_update()
@@ -182,6 +184,7 @@ class page(object):
 	def configure_page(self):
 		menu_state = 0
 		self.g.menu_choice_id = 0
+		self.g.c_g_m.set_menu_group()
 		while not self.g.d.io.quit :
 			self.clock.tick(10)
 			self.g.event_update()
@@ -201,6 +204,7 @@ class page(object):
 				if self.g.d.io.all_buttons[8]['down']:
 					self.g.d.io.all_buttons[8]['down'] = 0
 					menu_state = 1
+					self.g.c_m.set_menu_group()
 					self.g.menu_choice_id = 0
 			
 			else:
@@ -211,6 +215,7 @@ class page(object):
 				
 				if self.g.d.io.all_buttons[8]['down']:
 					self.g.d.io.all_buttons[8]['down'] = 0
+					self.g.c_g_m.set_menu_group()
 					menu_state = 0
 					
 					if self.g.m_list[self.g.menu_choice_id].gotopage:
