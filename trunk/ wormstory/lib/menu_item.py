@@ -3,10 +3,11 @@
 from pygame import *
 
 class menu_item(sprite.Sprite):
-	def __init__(self, g, title, location):
+	def __init__(self, g, title, location, gotopage=None):
 		sprite.Sprite.__init__(self)
 		self.g = g
 		self.title = title
+		self.gotopage = gotopage
 		self.non_active_color = (0,100,0)
 		self.active_color = (0, 150, 0)
 		self.message_title(self.non_active_color)

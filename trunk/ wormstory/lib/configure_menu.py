@@ -1,12 +1,12 @@
 # Hi I am configure menu
 
-from menu_menu_s import menu_menu_s
-from menu_title_items import menu_play, menu_quit, menu_main
+from menu import menu
+from menu_item import menu_item
 
-class configure_menu(menu_menu_s):
+class configure_menu(menu):
 	def _add_item(self):						
-		self.g.m_list = [ menu_play(self.g, self.g.GAME_PAGE, (10,60)),
-						menu_main(self.g, self.g.MAIN_PAGE, (10,90)),
-						menu_quit(self.g, self.g.QUIT_PAGE, (10,120))
+		self.g.m_list = [ menu_item(self.g, 'PLAY', (10,60), self.g.GAME_PAGE),
+						menu_item(self.g, 'MAIN', (10,90), self.g.MAIN_PAGE),
+						menu_item(self.g, 'QUIT', (10,120), self.g.QUIT_PAGE)
 						]
 						
