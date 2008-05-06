@@ -3,7 +3,7 @@
 from pygame import *
 
 class menu_item(sprite.Sprite):
-	def __init__(self, g, title, location, gotopage=None):
+	def __init__(self, g, title, location, gotopage=None, confobj=None):
 		sprite.Sprite.__init__(self)
 		self.g = g
 		self.title = title
@@ -12,6 +12,7 @@ class menu_item(sprite.Sprite):
 		self.active_color = (0, 150, 0)
 		self.message_title(self.non_active_color)
 		self.rect = self.image.get_rect(topleft=location)
+		self.confobj = confobj
 	def message_title(self, color):
 		self.image = self.g.menu_info_font.render(self.title, 1, color)
 	def update(self):
