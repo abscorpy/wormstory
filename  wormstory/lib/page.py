@@ -215,12 +215,12 @@ class page(object):
 				
 				if self.g.d.io.all_buttons[8]['down']:
 					self.g.d.io.all_buttons[8]['down'] = 0
-					self.g.c_g_m.set_menu_group()
 					menu_state = 0
 					
 					if self.g.m_list[self.g.menu_choice_id].gotopage:
 						gotopage = self.g.m_list[self.g.menu_choice_id].gotopage
 						self.g.menu_choice_id = 0
 						return gotopage
-			
+					else:
+						self.g.c_g_m.set_menu_group()
 			display.flip()
