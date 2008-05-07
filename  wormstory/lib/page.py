@@ -210,9 +210,9 @@ class page(object):
 				self.g.s.playinfo_s.blit(
 						self.g.game_info_font.render('s: %i' %((self.g.config_speed/170)*100), 1,
 							(180,0,0)),(10, 470))
-				self.g.s.playinfo_s.blit(
-						self.g.game_info_font.render('m: %i' %((self.g.config_max/170)*100), 1,
-							(180,0,0)),(10, 510))
+#				self.g.s.playinfo_s.blit(
+#						self.g.game_info_font.render('m: %i' %((self.g.config_max/170)*100), 1,
+#							(180,0,0)),(10, 510))
 				self.g.s.playinfo_s.blit(
 						self.g.game_info_font.render('k: %i' %((self.g.config_keep/170)*100), 1,
 							(180,0,0)),(10, 550))
