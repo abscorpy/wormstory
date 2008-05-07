@@ -49,6 +49,19 @@ class gobj(object):
 			self.u.load_sound('shotb.ogg'),
 			self.u.load_sound('laserrocket.ogg')
 			]
+		
+		self.click_sounds = [
+			self.u.load_sound('click_1d.ogg'),
+			self.u.load_sound('click_h1.ogg'),
+			self.u.load_sound('clickverb.ogg')
+			]
+		
+		self.page_sounds = [
+			self.u.load_sound('book_page_f2.ogg'),
+			self.u.load_sound('book_page_s.ogg'),
+			self.u.load_sound('book_page_f.ogg'),
+			self.u.load_sound('book_page_s2.ogg')
+			]
 
 		# load fonts
 		self.game_info_font = font.Font(self.u.load_font('graffiti.ttf'), 36)
@@ -67,11 +80,11 @@ class gobj(object):
 
 		self.init_base_int()
 		
-		
 		# Set this value for test configure menu.
 		self.config_speed = 170.00
 		self.config_max = 170.00
 		self.config_keep = 170.00
+		self.config_music = 170.00
 		
 		# page int set.
 		self.NEW_GAME_PAGE = -1
@@ -120,6 +133,15 @@ class gobj(object):
 					self.groundblock_group.add(bigblock(self, id,
 						(randint(0,255),randint(0,255),randint(0,255)), (x * 200,y * 200)))
 					id += 1
+		
+	def click_sound_play(self):
+		sound = randint(0, 2)
+		self.click_sounds[sound].play()
+		
+	def page_sound_play(self):
+		sound = randint(0, 3)
+		self.page_sounds[sound].play()
+
 
 if __name__ == "__main__":
 	g = gobj()

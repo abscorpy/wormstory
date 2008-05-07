@@ -2,6 +2,7 @@
 
 from menu_item import menu_item
 from choicebar import choicebar
+from pygame import *
 
 class choicebar_menu_item(menu_item, choicebar):
 	def __init__(self, g, title, pos, s, config_obj_value):
@@ -31,3 +32,12 @@ class keep_item(choicebar_menu_item):
 		choicebar_menu_item.__init__(self, g, 'KEEP', pos, s, g.config_keep)
 	def _set_configobj_value(self, v):
 		self.g.config_keep = v
+		
+class music_item(choicebar_menu_item):
+	def __init__(self, g, pos, s):
+		choicebar_menu_item.__init__(self, g, 'MUSIC', pos, s, g.config_music)
+	def _set_configobj_value(self, v):
+		self.g.config_music = v
+		mixer.music.set_volume(v / 340)
+		
+		

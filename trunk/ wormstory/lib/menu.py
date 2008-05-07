@@ -23,10 +23,11 @@ class menu(object):
 		if self.g.menu_choice_id < (len(self.g.menu_group.sprites()) - 1):
 			if self.g.d.io.all_buttons[6]['down']:
 				self.g.menu_choice_id += 1
+				self.g.click_sound_play()
 		if self.g.menu_choice_id > 0:
 			if self.g.d.io.all_buttons[1]['down']:
 				self.g.menu_choice_id -= 1
-		
+				self.g.click_sound_play()
 		if self.background_image:
 			self.s.blit(self.background_image, (0,0))
 		
