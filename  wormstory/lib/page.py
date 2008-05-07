@@ -201,6 +201,16 @@ class page(object):
 #				self.g.choicebar.update()
 				self.g.s.playarea_s.blit(self.g.s.menu_choicebar_s, (0,250))
 				
+				self.g.s.playinfo_s.blit(
+						self.g.game_info_font.render('s: %s' %self.g.config_speed, 1,
+							(180,0,0)),(10, 470))
+				self.g.s.playinfo_s.blit(
+						self.g.game_info_font.render('m: %s' %self.g.config_max, 1,
+							(180,0,0)),(10, 510))
+				self.g.s.playinfo_s.blit(
+						self.g.game_info_font.render('k: %s' %self.g.config_keep, 1,
+							(180,0,0)),(10, 550))
+				
 				if self.g.d.io.all_buttons[8]['down']:
 					self.g.d.io.all_buttons[8]['down'] = 0
 					menu_state = 1
@@ -215,12 +225,14 @@ class page(object):
 				
 				if self.g.d.io.all_buttons[8]['down']:
 					self.g.d.io.all_buttons[8]['down'] = 0
-					menu_state = 0
+					
 					
 					if self.g.m_list[self.g.menu_choice_id].gotopage:
 						gotopage = self.g.m_list[self.g.menu_choice_id].gotopage
 						self.g.menu_choice_id = 0
 						return gotopage
 					else:
+						# if the module return, don't care the menu_state.
+						menu_state = 0
 						self.g.c_g_m.set_menu_group()
 			display.flip()
