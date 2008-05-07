@@ -21,7 +21,7 @@ class main_loop(object):
 		
 def main():
 	game = main_loop()
-	game.g.set_bigblock()
+#	game.g.set_bigblock()
 	game.g.p.mark_page()
 	p = game.g.p.main_page()
 	while True:

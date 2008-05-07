@@ -93,6 +93,7 @@ class page(object):
 					return self.g.m_list[self.g.menu_choice_id].gotopage
 				else:
 					self.g.set_bigblock()
+					self.g.init_base_int()
 					return self.g.m_list[self.g.menu_choice_id].gotopage * ( -1 )
 
 			display.flip()
@@ -101,6 +102,7 @@ class page(object):
 		menu_state = 0
 		self.g.menu_choice_id = 0
 		self.mark_time = 72
+		self.g.can_replay = 1
 		self.g.p_m.set_menu_group()
 		while self.mark_time : # and not self.g.d.io.all_buttons[9]['down'] : #21
 			self.clock.tick(24)

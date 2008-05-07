@@ -65,12 +65,8 @@ class gobj(object):
 		self.groundblock_group = sprite.Group()
 		self.menu_group = sprite.Group()
 
-		# base int set.
-		self.score = 100
-		self.hit_block = 0
-		self.game_more = 2
-		self.game_speed = 100
-		self.menu_choice_id = 0
+		self.init_base_int()
+		
 		
 		# Set this value for test configure menu.
 		self.config_speed = 170.00
@@ -91,6 +87,15 @@ class gobj(object):
 		self.c_g_m = configure_game_menu(self, self.s.menu_choicebar_s, self.menu_background2_image)
 #		self.choicebar = choicebar(self, self.s.menu_choicebar_s)
 		self.m_list = []
+		
+	def init_base_int(self):
+		# base int set.
+		self.score = 100
+		self.hit_block = 0
+		self.game_more = 2
+		self.game_speed = 100
+		self.can_replay = 0
+		self.menu_choice_id = 0
 	
 	def event_update(self):
 		events = event.get()
