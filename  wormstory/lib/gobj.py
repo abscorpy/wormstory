@@ -70,14 +70,12 @@ class gobj(object):
 		self.hit_block = 0
 		self.game_more = 2
 		self.game_speed = 100
-		# Now is not have any meaning about game_keep.
-		self.game_keep = 170
 		self.menu_choice_id = 0
 		
 		# Set this value for test configure menu.
-		self.config_speed = 170
-		self.config_max = 170
-		self.config_keep = 170
+		self.config_speed = 170.00
+		self.config_max = 170.00
+		self.config_keep = 170.00
 		
 		# page int set.
 		self.GAME_PAGE = 1
