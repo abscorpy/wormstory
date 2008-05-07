@@ -14,6 +14,7 @@ class page(object):
 			)
 		if self.g.d.io.all_buttons[8]['down']:
 			self.g.d.io.all_buttons[8]['down'] = 0
+			self.g.page_sound_play()
 			return self.g.MAIN_PAGE
 		else:
 			return 0
@@ -89,6 +90,7 @@ class page(object):
 			# buttons take one and reset it.
 			if self.g.d.io.all_buttons[8]['down']:
 				self.g.d.io.all_buttons[8]['down'] = 0
+				self.g.page_sound_play()
 				if self.g.m_list[self.g.menu_choice_id].gotopage > 0:
 					return self.g.m_list[self.g.menu_choice_id].gotopage
 				else:
@@ -117,6 +119,7 @@ class page(object):
 				
 				if self.g.d.io.all_buttons[8]['down']:
 					self.g.d.io.all_buttons[8]['down'] = 0
+					self.g.page_sound_play()
 					menu_state = 1
 			elif self.g.score <= 0:
 				self.g.s.playarea_s.blit(
@@ -133,6 +136,7 @@ class page(object):
 #				self.__check_playing_configure_state(0)
 				if self.g.d.io.all_buttons[8]['down']:
 					self.g.d.io.all_buttons[8]['down'] = 0
+					self.g.page_sound_play()
 					menu_state = 0
 					if self.g.m_list[self.g.menu_choice_id].gotopage:
 						gotopage = self.g.m_list[self.g.menu_choice_id].gotopage
@@ -210,9 +214,9 @@ class page(object):
 				self.g.s.playinfo_s.blit(
 						self.g.game_info_font.render('s: %i' %((self.g.config_speed/170)*100), 1,
 							(180,0,0)),(10, 470))
-#				self.g.s.playinfo_s.blit(
-#						self.g.game_info_font.render('m: %i' %((self.g.config_max/170)*100), 1,
-#							(180,0,0)),(10, 510))
+				self.g.s.playinfo_s.blit(
+						self.g.game_info_font.render('m: %i' %((self.g.config_music/170)*100), 1,
+							(180,0,0)),(10, 510))
 				self.g.s.playinfo_s.blit(
 						self.g.game_info_font.render('k: %i' %((self.g.config_keep/170)*100), 1,
 							(180,0,0)),(10, 550))
@@ -220,6 +224,7 @@ class page(object):
 				if self.g.d.io.all_buttons[8]['down']:
 					self.g.d.io.all_buttons[8]['down'] = 0
 					menu_state = 1
+					self.g.page_sound_play()
 					self.g.c_m.set_menu_group()
 					self.g.menu_choice_id = 0
 			
@@ -231,7 +236,7 @@ class page(object):
 				
 				if self.g.d.io.all_buttons[8]['down']:
 					self.g.d.io.all_buttons[8]['down'] = 0
-					
+					self.g.page_sound_play()
 					
 					if self.g.m_list[self.g.menu_choice_id].gotopage:
 						gotopage = self.g.m_list[self.g.menu_choice_id].gotopage

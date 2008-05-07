@@ -37,9 +37,3 @@ class bigblock(sprite.Sprite):
 	def reset(self):
 		self.active = 0
 		self.image.fill((0, 0, 0))
-		
-				
-			
-			
-			
-		
