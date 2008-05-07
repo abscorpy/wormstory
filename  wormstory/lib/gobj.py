@@ -78,6 +78,7 @@ class gobj(object):
 		self.config_keep = 170.00
 		
 		# page int set.
+		self.NEW_GAME_PAGE = -1
 		self.GAME_PAGE = 1
 		self.CONFIGURE_PAGE = 2
 		self.QUIT_PAGE = 3
@@ -104,6 +105,7 @@ class gobj(object):
 
 	def set_bigblock(self):
 		# init the big blocks
+		self.groundblock_group.empty()
 		id = 0
 		for y in range(0, 3):
 			for x in range(0, 3):
