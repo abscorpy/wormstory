@@ -89,7 +89,11 @@ class page(object):
 			# buttons take one and reset it.
 			if self.g.d.io.all_buttons[8]['down']:
 				self.g.d.io.all_buttons[8]['down'] = 0
-				return self.g.m_list[self.g.menu_choice_id].gotopage
+				if self.g.m_list[self.g.menu_choice_id].gotopage > 0:
+					return self.g.m_list[self.g.menu_choice_id].gotopage
+				else:
+					self.g.set_bigblock()
+					return self.g.m_list[self.g.menu_choice_id].gotopage * ( -1 )
 
 			display.flip()
 								
