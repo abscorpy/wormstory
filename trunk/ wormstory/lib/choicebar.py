@@ -11,6 +11,10 @@ class choicebar(object):
 	def _count_pos(self, (pass_pos)):
 		result_pos = (self.pos[0] + pass_pos[0], self.pos[1] + pass_pos[1])
 		return result_pos
+	
+	def _set_configobj_value(self, y):
+		pass
+	
 	def update(self):
 		
 		if self.choice_y < 340:

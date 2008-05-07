@@ -202,13 +202,13 @@ class page(object):
 				self.g.s.playarea_s.blit(self.g.s.menu_choicebar_s, (0,250))
 				
 				self.g.s.playinfo_s.blit(
-						self.g.game_info_font.render('s: %s' %self.g.config_speed, 1,
+						self.g.game_info_font.render('s: %i' %((self.g.config_speed/170)*100), 1,
 							(180,0,0)),(10, 470))
 				self.g.s.playinfo_s.blit(
-						self.g.game_info_font.render('m: %s' %self.g.config_max, 1,
+						self.g.game_info_font.render('m: %i' %((self.g.config_max/170)*100), 1,
 							(180,0,0)),(10, 510))
 				self.g.s.playinfo_s.blit(
-						self.g.game_info_font.render('k: %s' %self.g.config_keep, 1,
+						self.g.game_info_font.render('k: %i' %((self.g.config_keep/170)*100), 1,
 							(180,0,0)),(10, 550))
 				
 				if self.g.d.io.all_buttons[8]['down']:
